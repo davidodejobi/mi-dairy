@@ -1,24 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:notetaking_crud_app/locator.dart';
+import 'package:notetaking_crud_app/models/theme.dart';
+import 'package:provider/provider.dart';
 
 import 'views/home.dart';
 
 void main() {
   setup();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+  NoteTheme noteTheme = getIt<NoteTheme>();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Note App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<NoteTheme>(
+          create: (_) => noteTheme,
+        ),
+      ],
+      child: Consumer(
+        builder: (context, NoteTheme noteTheme, _) {
+          return MaterialApp(
+            title: 'Note Taking App',
+            theme:
+                noteTheme.isDark ? noteTheme.darkTheme : noteTheme.lightTheme,
+            darkTheme: noteTheme.darkTheme,
+            themeMode: ThemeMode.system,
+            home: const Home(),
+          );
+        },
       ),
-      home: const Home(),
     );
   }
 }
