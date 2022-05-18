@@ -1,36 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:notetaking_crud_app/locator.dart';
-import 'package:notetaking_crud_app/models/theme.dart';
+import 'package:notetaking_crud_app/providers/theme.dart';
 import 'package:provider/provider.dart';
 
 import 'views/home.dart';
 
 void main() {
+  timeDilation = 1.0;
   setup();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 // ignore: must_be_immutable
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-  NoteTheme noteTheme = getIt<NoteTheme>();
+  const MyApp({Key? key}) : super(key: key);
+
+  final Color colorSeedLight = const Color(0xFF00296B);
+  final Color colorSeedDark = const Color(0xFF6B8BC3);
+  final bool material3 = true;
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<NoteTheme>(
-          create: (_) => noteTheme,
+          create: (_) => NoteTheme(),
         ),
       ],
-      child: Consumer(
-        builder: (context, NoteTheme noteTheme, _) {
+      child: Consumer<NoteTheme>(
+        builder: (context, appTheme, _) {
           return MaterialApp(
             title: 'Note Taking App',
-            theme:
-                noteTheme.isDark ? noteTheme.darkTheme : noteTheme.lightTheme,
-            darkTheme: noteTheme.darkTheme,
-            themeMode: ThemeMode.system,
+            theme: NoteTheme.light(colorSeedLight, material3),
+            darkTheme: NoteTheme.dark(colorSeedDark, material3),
+            themeMode: appTheme.currentTheme,
             home: const Home(),
           );
         },
