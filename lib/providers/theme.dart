@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 @immutable
 class MyColors extends ThemeExtension<MyColors> {
   const MyColors({
+    required this.snackBarActionColor,
     required this.colour,
     required this.errorColour,
     required this.decoration,
@@ -11,11 +12,16 @@ class MyColors extends ThemeExtension<MyColors> {
   final Color? colour;
   final Color? errorColour;
   final BoxDecoration? decoration;
+  final Color? snackBarActionColor;
 
   @override
   MyColors copyWith(
-      {Color? colour, Color? errorColour, BoxDecoration? decoration}) {
+      {Color? colour,
+      Color? errorColour,
+      BoxDecoration? decoration,
+      Color? snackBarActionColor}) {
     return MyColors(
+      snackBarActionColor: snackBarActionColor ?? this.snackBarActionColor,
       colour: colour ?? this.colour,
       errorColour: errorColour ?? this.errorColour,
       decoration: decoration ?? this.decoration,
@@ -28,6 +34,8 @@ class MyColors extends ThemeExtension<MyColors> {
       return this;
     }
     return MyColors(
+      snackBarActionColor:
+          Color.lerp(snackBarActionColor, other.snackBarActionColor, t),
       colour: Color.lerp(colour, other.colour, t),
       errorColour: Color.lerp(errorColour, other.errorColour, t),
       decoration: BoxDecoration.lerp(decoration, other.decoration, t),
@@ -44,6 +52,13 @@ class NoteTheme with ChangeNotifier {
     return ThemeData.light().copyWith(
       primaryColor: material3 ? color : null,
       useMaterial3: material3,
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: Color(0xFFFF7B00),
+      ),
+      scaffoldBackgroundColor: const Color(0xFFE2E6ED),
+      appBarTheme: const AppBarTheme(
+        color: Color(0xFFE2E6ED),
+      ),
       textTheme: const TextTheme(
         headline1: TextStyle(
           fontSize: 72.0,
@@ -58,12 +73,12 @@ class NoteTheme with ChangeNotifier {
         headline3: TextStyle(
           fontSize: 24.0,
           color: Colors.black,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.normal,
         ),
         headline4: TextStyle(
           fontSize: 18.0,
           color: Colors.black,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.normal,
         ),
         headline5: TextStyle(
           fontSize: 14.0,
@@ -103,6 +118,7 @@ class NoteTheme with ChangeNotifier {
       colorScheme: material3 ? ColorScheme.fromSeed(seedColor: color) : null,
       extensions: <ThemeExtension<dynamic>>[
         const MyColors(
+          snackBarActionColor: Colors.black,
           colour: Color(0xFF00296B),
           errorColour: Color(0xFFB00020),
           decoration: BoxDecoration(
@@ -117,6 +133,12 @@ class NoteTheme with ChangeNotifier {
     return ThemeData.dark().copyWith(
       appBarTheme: const AppBarTheme(
         color: Color(0xFF242A36),
+      ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: Color(0xFFFF7155),
+      ),
+      cardTheme: const CardTheme(
+        color: Color(0xFF17191D),
       ),
       iconTheme: const IconThemeData(
         color: Colors.white,
@@ -136,12 +158,12 @@ class NoteTheme with ChangeNotifier {
         headline3: TextStyle(
           fontSize: 24.0,
           color: Colors.white,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.normal,
         ),
         headline4: TextStyle(
           fontSize: 18.0,
           color: Colors.white,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.normal,
         ),
         headline5: TextStyle(
           fontSize: 14.0,
@@ -183,6 +205,7 @@ class NoteTheme with ChangeNotifier {
       colorScheme: material3 ? ColorScheme.fromSeed(seedColor: color) : null,
       extensions: <ThemeExtension<dynamic>>[
         const MyColors(
+          snackBarActionColor: Colors.white,
           colour: Color(0xFF6B8BC3),
           errorColour: Color(0xFFCF6679),
           decoration: BoxDecoration(

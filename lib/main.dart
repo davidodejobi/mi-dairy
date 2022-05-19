@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:notetaking_crud_app/locator.dart';
+import 'package:notetaking_crud_app/providers/note_provider.dart';
 import 'package:notetaking_crud_app/providers/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -27,15 +28,19 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<NoteTheme>(
           create: (_) => NoteTheme(),
         ),
+        ChangeNotifierProvider<NoteProvider>(
+          create: (_) => NoteProvider(),
+        ),
       ],
       child: Consumer<NoteTheme>(
         builder: (context, appTheme, _) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Note Taking App',
             theme: NoteTheme.light(colorSeedLight, material3),
             darkTheme: NoteTheme.dark(colorSeedDark, material3),
             themeMode: appTheme.currentTheme,
-            home: const Home(),
+            home: Home(),
           );
         },
       ),
