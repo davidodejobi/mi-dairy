@@ -1,53 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:notetaking_crud_app/providers/theme.dart';
+import 'package:notetaking_crud_app/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 
-PreferredSizeWidget createNoteAppBar(String title, BuildContext context) {
+PreferredSizeWidget CreateNoteAppBar(String title, BuildContext context) {
   var notifier = Provider.of<NoteTheme>(context);
-  return AppBar(
-    leading: Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: Card(
-        color: Theme.of(context).cardColor,
-        child: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: Theme.of(context).iconTheme.color,
+  return PreferredSize(
+    preferredSize: const Size.fromHeight(kToolbarHeight),
+    child: SafeArea(
+      child: SizedBox(
+        height: kToolbarHeight,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: [
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ),
+              const Spacer(),
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.color_lens,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  onPressed: () {},
+                  tooltip: 'Change note color',
+                ),
+              ),
+              const SizedBox(width: 8),
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.save,
+                  ),
+                  onPressed: () {},
+                  tooltip: "Save",
+                ),
+              ),
+            ],
           ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
         ),
       ),
     ),
-    actions: [
-      Card(
-        color: Theme.of(context).cardColor,
-        child: IconButton(
-          icon: Icon(
-            Icons.search,
-            color: Theme.of(context).iconTheme.color,
-          ),
-          onPressed: () {},
-        ),
-      ),
-      const SizedBox(width: 8),
-      Card(
-        color: Theme.of(context).cardColor,
-        child: IconButton(
-          icon: notifier.isDarkTheme
-              ? const Icon(
-                  Icons.wb_sunny,
-                  color: Colors.white,
-                )
-              : const Icon(
-                  Icons.nightlight,
-                ),
-          onPressed: () => notifier.toggleTheme(),
-          tooltip: "Toggle brightness",
-        ),
-      ),
-      const SizedBox(width: 8),
-    ],
   );
 }

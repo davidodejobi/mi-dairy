@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:notetaking_crud_app/shared/note_appbar.dart';
 
-import 'package:notetaking_crud_app/providers/note_provider.dart';
-import 'package:notetaking_crud_app/shared/snack_bar.dart';
-import 'package:notetaking_crud_app/views/add_note.dart';
 import 'package:provider/provider.dart';
 
-import '../models/note.dart';
-import '../providers/theme.dart';
-import '../widgets/dismissible_bg.dart';
-import '../widgets/note_card.dart';
+import '../../core/models/note.dart';
+import '../../core/utils/theme.dart';
+import '../../shared/snack_bar.dart';
+import '../add_note.dart';
+import 'providers/note_provider.dart';
+import 'widgets/dismissible_bg.dart';
+import 'widgets/note_card.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

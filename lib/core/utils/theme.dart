@@ -59,6 +59,12 @@ class NoteTheme with ChangeNotifier {
       appBarTheme: const AppBarTheme(
         color: Color(0xFFE2E6ED),
       ),
+      inputDecorationTheme: const InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+        ),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+      ),
       textTheme: const TextTheme(
         headline1: TextStyle(
           fontSize: 72.0,
@@ -68,7 +74,7 @@ class NoteTheme with ChangeNotifier {
         headline2: TextStyle(
           fontSize: 36.0,
           color: Colors.black,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.normal,
         ),
         headline3: TextStyle(
           fontSize: 24.0,
@@ -153,7 +159,7 @@ class NoteTheme with ChangeNotifier {
         headline2: TextStyle(
           fontSize: 36.0,
           color: Colors.white,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.normal,
         ),
         headline3: TextStyle(
           fontSize: 24.0,

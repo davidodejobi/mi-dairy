@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../models/note.dart';
+import '../../../core/models/note.dart';
 
 final random = Random();
 
 class NoteProvider with ChangeNotifier {
   Color? color = Colors.primaries[random.nextInt(Colors.primaries.length)]
-      [random.nextInt(9) * 10000];
+      [random.nextInt(2) * 2];
 
   final _notes = [
     Note(

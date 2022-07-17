@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 
-import 'providers/note_provider.dart';
+import 'modules/home/providers/note_provider.dart';
 
 final getIt = GetIt.instance;
 

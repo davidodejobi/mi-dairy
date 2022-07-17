@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:notetaking_crud_app/locator.dart';
-import 'package:notetaking_crud_app/providers/note_provider.dart';
-import 'package:notetaking_crud_app/providers/theme.dart';
+import 'package:notetaking_crud_app/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 
-import 'views/home.dart';
+import 'modules/home/home.dart';
+import 'modules/home/providers/note_provider.dart';
 
 void main() {
   timeDilation = 1.0;
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
             theme: NoteTheme.light(colorSeedLight, material3),
             darkTheme: NoteTheme.dark(colorSeedDark, material3),
             themeMode: appTheme.currentTheme,
-            home: Home(),
+            home: const Home(),
           );
         },
       ),
