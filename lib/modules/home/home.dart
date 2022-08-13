@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../../core/models/note.dart';
 import '../../core/utils/theme.dart';
 import '../../shared/snack_bar.dart';
-import '../add_note.dart';
+import '../add_note/add_note.dart';
 import 'providers/note_provider.dart';
 import 'widgets/dismissible_bg.dart';
 import 'widgets/note_card.dart';
