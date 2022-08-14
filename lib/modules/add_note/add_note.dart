@@ -2,17 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:notetaking_crud_app/modules/add_note/provider/add_note_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../locator.dart';
 import '../../shared/create_note_appBar.dart';
 import '../home/providers/note_provider.dart';
 
+AddNoteProvider addNoteProvider = getIt<AddNoteProvider>();
+
 class AddNote extends StatefulWidget {
-  const AddNote({Key? key}) : super(key: key);
+  final String? id;
+  final String? title;
+  final String? content;
+  const AddNote({
+    Key? key,
+    this.id,
+    this.title,
+    this.content,
+  }) : super(key: key);
 
   @override
   State<AddNote> createState() => _AddNoteState();
 }
 
 class _AddNoteState extends State<AddNote> {
+  late TextEditingController _titleController;
+  late TextEditingController _bodyController;
+  @override
+  void initState() {
+    _titleController = TextEditingController();
+    _bodyController = TextEditingController();
+
+    setState(() {
+      _titleController = TextEditingController(text: widget.title);
+      _bodyController = TextEditingController(text: widget.content);
+    });
+    super.initState();
+  }
+
   FocusNode postNode = FocusNode();
   @override
   Widget build(BuildContext context) {
@@ -23,10 +48,22 @@ class _AddNoteState extends State<AddNote> {
         "Add Note",
         context,
         onPressed: () {
-          np.addNote(
-            anp.titleController.text,
-            anp.bodyController.text,
-          );
+          if (widget.id != null) {
+            np.updateNote(
+              widget.id!,
+              _titleController.text,
+              _bodyController.text,
+            );
+          } else {
+            np.addNote(
+              _titleController.text,
+              _bodyController.text,
+            );
+          }
+          // np.addNote(
+          //   anp.titleController.text,
+          //   anp.bodyController.text,
+          // );
         },
         onPop: () {
           Navigator.pop(context);
@@ -42,7 +79,7 @@ class _AddNoteState extends State<AddNote> {
           child: Column(
             children: [
               TextField(
-                controller: value.titleController,
+                controller: _titleController,
                 style: Theme.of(context).textTheme.headline2,
                 maxLines: null,
                 decoration: const InputDecoration(
@@ -74,7 +111,7 @@ class _AddNoteState extends State<AddNote> {
                             FocusScope.of(context).requestFocus(postNode),
                         expands: true,
                         keyboardType: TextInputType.multiline,
-                        controller: value.bodyController,
+                        controller: _bodyController,
                         style: Theme.of(context).textTheme.headline3,
                         focusNode: postNode,
                         maxLines: null,

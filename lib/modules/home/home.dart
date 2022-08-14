@@ -97,9 +97,23 @@ class Home extends StatelessWidget {
                           mainAL: MainAxisAlignment.end,
                           size: 20,
                         ),
-                        child: NoteCard(
-                          color: value.notes[index].color,
-                          text: value.notes[index].title!,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AddNote(
+                                  content: value.notes[index].content,
+                                  id: value.notes[index].id,
+                                  title: value.notes[index].title,
+                                ),
+                              ),
+                            );
+                          },
+                          child: NoteCard(
+                            color: value.notes[index].color,
+                            text: value.notes[index].title!,
+                          ),
                         ),
                       );
                     },
