@@ -65,30 +65,33 @@ class NoteTheme with ChangeNotifier {
         ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
       ),
+      iconTheme: const IconThemeData(
+        color: Color(0xFF242A36),
+      ),
       textTheme: const TextTheme(
         headline1: TextStyle(
           fontSize: 72.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.bold,
         ),
         headline2: TextStyle(
           fontSize: 36.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.normal,
         ),
         headline3: TextStyle(
           fontSize: 24.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.normal,
         ),
         headline4: TextStyle(
           fontSize: 18.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.normal,
         ),
         headline5: TextStyle(
           fontSize: 14.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.bold,
         ),
         headline6: TextStyle(
@@ -97,34 +100,34 @@ class NoteTheme with ChangeNotifier {
         ),
         bodyText1: TextStyle(
           fontSize: 14.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.w400,
         ),
         bodyText2: TextStyle(
           fontSize: 12.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.w400,
         ),
         button: TextStyle(
           fontSize: 14.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.w400,
         ),
         caption: TextStyle(
           fontSize: 12.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.w400,
         ),
         overline: TextStyle(
           fontSize: 12.0,
-          color: Colors.black,
+          color: Color(0xFF242A36),
           fontWeight: FontWeight.w400,
         ),
       ),
       colorScheme: material3 ? ColorScheme.fromSeed(seedColor: color) : null,
       extensions: <ThemeExtension<dynamic>>[
         const MyColors(
-          snackBarActionColor: Colors.black,
+          snackBarActionColor: Color(0xFF242A36),
           colour: Color(0xFF00296B),
           errorColour: Color(0xFFB00020),
           decoration: BoxDecoration(
@@ -147,33 +150,33 @@ class NoteTheme with ChangeNotifier {
         color: Color(0xFF17191D),
       ),
       iconTheme: const IconThemeData(
-        color: Colors.white,
+        color: Color(0xFFE2E6ED),
       ),
       scaffoldBackgroundColor: const Color(0xFF242A36),
       textTheme: const TextTheme(
         headline1: TextStyle(
           fontSize: 72.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.bold,
         ),
         headline2: TextStyle(
           fontSize: 36.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.normal,
         ),
         headline3: TextStyle(
           fontSize: 24.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.normal,
         ),
         headline4: TextStyle(
           fontSize: 18.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.normal,
         ),
         headline5: TextStyle(
           fontSize: 14.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.bold,
         ),
         headline6: TextStyle(
@@ -182,27 +185,27 @@ class NoteTheme with ChangeNotifier {
         ),
         bodyText1: TextStyle(
           fontSize: 14.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.w400,
         ),
         bodyText2: TextStyle(
           fontSize: 12.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.w400,
         ),
         button: TextStyle(
           fontSize: 14.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.w400,
         ),
         caption: TextStyle(
           fontSize: 12.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.w400,
         ),
         overline: TextStyle(
           fontSize: 12.0,
-          color: Colors.white,
+          color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -211,7 +214,7 @@ class NoteTheme with ChangeNotifier {
       colorScheme: material3 ? ColorScheme.fromSeed(seedColor: color) : null,
       extensions: <ThemeExtension<dynamic>>[
         const MyColors(
-          snackBarActionColor: Colors.white,
+          snackBarActionColor: Color(0xFFE2E6ED),
           colour: Color(0xFF6B8BC3),
           errorColour: Color(0xFFCF6679),
           decoration: BoxDecoration(

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:notetaking_crud_app/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 
-PreferredSizeWidget CreateNoteAppBar(String title, BuildContext context) {
+PreferredSizeWidget CreateNoteAppBar(
+  String title,
+  BuildContext context,
+  VoidCallback onPressed,
+) {
   var notifier = Provider.of<NoteTheme>(context);
   return PreferredSize(
     preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -59,7 +63,7 @@ PreferredSizeWidget CreateNoteAppBar(String title, BuildContext context) {
                   icon: const Icon(
                     Icons.save,
                   ),
-                  onPressed: () {},
+                  onPressed: onPressed,
                   tooltip: "Save",
                 ),
               ),

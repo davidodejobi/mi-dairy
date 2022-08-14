@@ -17,12 +17,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
-
+    final np = Provider.of<NoteProvider>(context);
     return Scaffold(
       key: key,
       appBar: createAppBar("Dairy Mi", context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          print(np.notes.length.toString());
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => const AddNote(),

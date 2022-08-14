@@ -4,7 +4,7 @@ class Note {
   String? id;
   String? title;
   String? content;
-  DateTime? creatDateTime;
+  DateTime? createDateTime;
   DateTime? updateDateTime;
   Color? color;
 
@@ -12,7 +12,7 @@ class Note {
     this.id,
     this.title,
     this.content,
-    this.creatDateTime,
+    this.createDateTime,
     this.updateDateTime,
     this.color,
   });
@@ -22,7 +22,7 @@ class Note {
       id: json['id'],
       title: json['title'],
       content: json['content'],
-      creatDateTime: DateTime.parse(json['creatDateTime']),
+      createDateTime: DateTime.parse(json['creatDateTime']),
       updateDateTime: DateTime.parse(json['updateDateTime']),
       color: json['color'],
     );
@@ -33,7 +33,7 @@ class Note {
     data['id'] = id;
     data['title'] = title;
     data['content'] = content;
-    data['creatDateTime'] = creatDateTime?.toIso8601String();
+    data['creatDateTime'] = createDateTime?.toIso8601String();
     data['updateDateTime'] = updateDateTime?.toIso8601String();
     data['color'] = color;
     return data;

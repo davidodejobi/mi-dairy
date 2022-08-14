@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/models/note.dart';
@@ -22,7 +23,7 @@ class NoteProvider with ChangeNotifier {
 Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Nunc nulla.
 
 In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
-      creatDateTime: DateTime.now(),
+      createDateTime: DateTime.now(),
       updateDateTime: DateTime.now(),
     ),
     Note(
@@ -37,7 +38,7 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
 Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Nunc nulla.
 
 In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
-      creatDateTime: DateTime.now(),
+      createDateTime: DateTime.now(),
       updateDateTime: DateTime.now(),
     ),
     Note(
@@ -51,7 +52,7 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
 Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Nunc nulla.
 
 In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
-      creatDateTime: DateTime.now(),
+      createDateTime: DateTime.now(),
       updateDateTime: DateTime.now(),
     ),
   ];
@@ -64,8 +65,20 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
     return _notes.firstWhere((note) => note.id == id);
   }
 
-  void addNote(Note note) {
-    _notes.add(note);
+  void addNote(
+    String title,
+    String content,
+  ) {
+    _notes.add(
+      Note(
+        title: title,
+        content: content,
+        color: Colors.teal,
+        id: DateTime.now().toString(),
+        createDateTime: DateTime.now(),
+        // updateDateTime: DateTime.now(),
+      ),
+    );
     notifyListeners();
   }
 
@@ -75,7 +88,9 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
       _notes[noteIndex] = newNote;
       notifyListeners();
     } else {
-      print('Note not found');
+      if (kDebugMode) {
+        print('Note not found');
+      }
     }
   }
 
