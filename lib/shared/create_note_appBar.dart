@@ -4,9 +4,10 @@ import 'package:provider/provider.dart';
 
 PreferredSizeWidget CreateNoteAppBar(
   String title,
-  BuildContext context,
-  VoidCallback onPressed,
-) {
+  BuildContext context, {
+  VoidCallback? onPressed,
+  VoidCallback? onPop,
+}) {
   var notifier = Provider.of<NoteTheme>(context);
   return PreferredSize(
     preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -29,9 +30,7 @@ PreferredSizeWidget CreateNoteAppBar(
                     Icons.arrow_back_ios_new_rounded,
                     color: Theme.of(context).iconTheme.color,
                   ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: onPop,
                 ),
               ),
               const Spacer(),

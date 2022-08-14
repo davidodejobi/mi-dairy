@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:notetaking_crud_app/modules/add_note/provider/provider.dart';
+import 'package:notetaking_crud_app/modules/add_note/provider/add_note_provider.dart';
 
 import 'modules/home/providers/note_provider.dart';
 

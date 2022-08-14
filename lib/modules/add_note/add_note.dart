@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notetaking_crud_app/modules/add_note/provider/provider.dart';
+import 'package:notetaking_crud_app/modules/add_note/provider/add_note_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../shared/create_note_appBar.dart';
@@ -19,13 +19,20 @@ class _AddNoteState extends State<AddNote> {
     final anp = Provider.of<AddNoteProvider>(context);
     final np = Provider.of<NoteProvider>(context);
     return Scaffold(
-      appBar: CreateNoteAppBar("Add Note", context, () {
-        print(np.notes.length.toString());
-        np.addNote(
-          anp.titleController.text,
-          anp.bodyController.text,
-        );
-      }),
+      appBar: CreateNoteAppBar(
+        "Add Note",
+        context,
+        onPressed: () {
+          np.addNote(
+            anp.titleController.text,
+            anp.bodyController.text,
+          );
+        },
+        onPop: () {
+          Navigator.pop(context);
+          anp.onPopAction();
+        },
+      ),
       body: Consumer<AddNoteProvider>(
         builder: (context, value, child) => Padding(
           padding: const EdgeInsets.symmetric(
@@ -107,6 +114,7 @@ class _AddNoteState extends State<AddNote> {
           ),
         ),
       ),
+      //   );
     );
   }
 }

@@ -23,7 +23,6 @@ class Home extends StatelessWidget {
       appBar: createAppBar("Dairy Mi", context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print(np.notes.length.toString());
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => const AddNote(),
