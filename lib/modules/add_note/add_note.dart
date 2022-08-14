@@ -49,15 +49,13 @@ class _AddNoteState extends State<AddNote> {
         context,
         onPressed: () {
           if (widget.id != null) {
-            np.updateNote(
-              widget.id!,
-              _titleController.text,
-              _bodyController.text,
-            );
+            np.updateNote(widget.id!, _titleController.text,
+                _bodyController.text, anp.color);
           } else {
             np.addNote(
               _titleController.text,
               _bodyController.text,
+              anp.color,
             );
           }
           // np.addNote(

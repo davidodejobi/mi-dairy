@@ -68,6 +68,13 @@ class NoteTheme with ChangeNotifier {
       iconTheme: const IconThemeData(
         color: Color(0xFF242A36),
       ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: Colors.blue.shade200,
+        indicatorColor: const Color(0xFF17191D),
+        labelTextStyle: MaterialStateProperty.all(
+          const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+        ),
+      ),
       textTheme: const TextTheme(
         headline1: TextStyle(
           fontSize: 72.0,
@@ -148,6 +155,13 @@ class NoteTheme with ChangeNotifier {
       ),
       cardTheme: const CardTheme(
         color: Color(0xFF17191D),
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: Colors.blue.shade200,
+        indicatorColor: const Color(0xFF17191D),
+        labelTextStyle: MaterialStateProperty.all(
+          const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+        ),
       ),
       iconTheme: const IconThemeData(
         color: Color(0xFFE2E6ED),

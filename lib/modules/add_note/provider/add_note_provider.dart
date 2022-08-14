@@ -5,10 +5,16 @@ class AddNoteProvider with ChangeNotifier {
   // NoteProvider np = getIt<NoteProvider>();
   TextEditingController titleController = TextEditingController();
   TextEditingController bodyController = TextEditingController();
+  Color color = Colors.transparent;
 
   onPopAction() {
     titleController.clear();
     bodyController.clear();
+    notifyListeners();
+  }
+
+  changeNoteColor(Color selectedColor) {
+    color = selectedColor;
     notifyListeners();
   }
 

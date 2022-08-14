@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+List<Color> colors = [
+  const Color(0xFF2ab7ca),
+  const Color(0xFFf6abb6),
+  const Color(0xFF011f4b),
+  const Color(0xFF851e3e),
+  const Color(0xFFdec3c3),
+  const Color(0xFF4a4e4d),
+  const Color(0xFFfe8a71),
+  const Color(0xFF2a4d69),
+  const Color(0xFF63ace5),
+  const Color(0xFFfe9c8f),
+  const Color(0xFF009688),
+  const Color(0xFFffffff),
+  const Color(0xFFc99789),
+  const Color(0xFF88d8b0),
+  const Color(0xFFffc425),
+  const Color(0xFFf37735),
+  const Color(0xFF4f372d),
+  const Color(0xFFff3377),
+  const Color(0xFF2e003e),
+  const Color(0xFF3d1e6d),
+  const Color(0xFF3b7dd8),
+];

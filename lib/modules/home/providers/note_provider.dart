@@ -68,12 +68,13 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
   void addNote(
     String title,
     String content,
+    Color color,
   ) {
     _notes.add(
       Note(
         title: title,
         content: content,
-        color: Colors.teal,
+        color: color,
         id: DateTime.now().toString(),
         createDateTime: DateTime.now(),
         // updateDateTime: DateTime.now(),
@@ -82,14 +83,18 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
     notifyListeners();
   }
 
-  void updateNote(String id, String title, String content) {
+  void updateNote(
+    String id,
+    String title,
+    String content,
+    Color color,
+  ) {
     final noteIndex = _notes.indexWhere((note) => note.id == id);
-    print('noteIndex: $noteIndex');
     if (noteIndex >= 0) {
       _notes[noteIndex] = Note(
         title: title,
         content: content,
-        color: Colors.teal,
+        color: color,
         id: DateTime.now().toString(),
         // createDateTime: DateTime.now(),
         updateDateTime: DateTime.now(),
