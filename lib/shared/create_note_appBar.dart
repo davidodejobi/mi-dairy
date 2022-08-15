@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:notetaking_crud_app/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 
 import '../core/constants/note_colors.dart';
 import '../modules/add_note/provider/add_note_provider.dart';
 
-PreferredSizeWidget CreateNoteAppBar(
+PreferredSizeWidget createNoteAppBar(
   String title,
   BuildContext context, {
   VoidCallback? onPressed,
   VoidCallback? onPop,
+  Color color = Colors.transparent,
 }) {
-  var notifier = Provider.of<NoteTheme>(context);
   final anp = Provider.of<AddNoteProvider>(context);
   return PreferredSize(
     preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -89,7 +88,6 @@ showAlertDialog(BuildContext context) {
     content: SizedBox(
       height: 400,
       child: SingleChildScrollView(
-          // won't be scrollable
           scrollDirection: Axis.horizontal,
           child: GridView.builder(
             scrollDirection: Axis.horizontal,

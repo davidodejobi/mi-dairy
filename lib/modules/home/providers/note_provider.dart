@@ -24,7 +24,7 @@ Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pul
 
 In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
       createDateTime: DateTime.now(),
-      updateDateTime: DateTime.now(),
+      isEditted: false,
     ),
     Note(
       color: Colors.primaries[random.nextInt(Colors.primaries.length)]
@@ -39,7 +39,7 @@ Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pul
 
 In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
       createDateTime: DateTime.now(),
-      updateDateTime: DateTime.now(),
+      isEditted: false,
     ),
     Note(
       color: Colors.primaries[random.nextInt(Colors.primaries.length)]
@@ -53,7 +53,7 @@ Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pul
 
 In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
       createDateTime: DateTime.now(),
-      updateDateTime: DateTime.now(),
+      isEditted: false,
     ),
   ];
 
@@ -77,7 +77,7 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
         color: color,
         id: DateTime.now().toString(),
         createDateTime: DateTime.now(),
-        // updateDateTime: DateTime.now(),
+        isEditted: false,
       ),
     );
     notifyListeners();
@@ -96,8 +96,8 @@ In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum l
         content: content,
         color: color,
         id: DateTime.now().toString(),
-        // createDateTime: DateTime.now(),
-        updateDateTime: DateTime.now(),
+        createDateTime: DateTime.now(),
+        isEditted: true,
       );
       notifyListeners();
     } else {

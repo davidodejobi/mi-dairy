@@ -106,14 +106,22 @@ class Home extends StatelessWidget {
                                   content: value.notes[index].content,
                                   id: value.notes[index].id,
                                   title: value.notes[index].title,
+                                  color: value.notes[index].color,
+                                  date: value.notes[index].createDateTime,
+                                  // updateDate: value.notes[index].updateDateTime,
                                 ),
                               ),
                             );
                           },
                           child: NoteCard(
-                            color: value.notes[index].color,
-                            text: value.notes[index].title!,
-                          ),
+                              color: value.notes[index].color,
+                              text: value.notes[index].title!,
+                              content: value.notes[index].content!,
+                              createDateTime:
+                                  value.notes[index].createDateTime!,
+                              isEditted: value.notes[index].isEditted
+                              // updateDateTime: value.notes[index].updateDateTime!,
+                              ),
                         ),
                       );
                     },

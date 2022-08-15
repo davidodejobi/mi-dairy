@@ -5,16 +5,16 @@ class Note {
   String? title;
   String? content;
   DateTime? createDateTime;
-  DateTime? updateDateTime;
   Color? color;
+  bool? isEditted;
 
   Note({
     this.id,
     this.title,
     this.content,
     this.createDateTime,
-    this.updateDateTime,
     this.color,
+    this.isEditted,
   });
 
   factory Note.fromJson(Map<String, dynamic> json) {
@@ -23,8 +23,9 @@ class Note {
       title: json['title'],
       content: json['content'],
       createDateTime: DateTime.parse(json['creatDateTime']),
-      updateDateTime: DateTime.parse(json['updateDateTime']),
+      // updateDateTime: DateTime.parse(json['updateDateTime']),
       color: json['color'],
+      isEditted: json['isEditted'],
     );
   }
 
@@ -34,8 +35,9 @@ class Note {
     data['title'] = title;
     data['content'] = content;
     data['creatDateTime'] = createDateTime?.toIso8601String();
-    data['updateDateTime'] = updateDateTime?.toIso8601String();
+    // data['updateDateTime'] = updateDateTime?.toIso8601String();
     data['color'] = color;
+    data['isEditted'] = isEditted;
     return data;
   }
 }
