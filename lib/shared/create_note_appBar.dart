@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -52,7 +54,6 @@ PreferredSizeWidget createNoteAppBar(
                     color: Theme.of(context).iconTheme.color,
                   ),
                   onPressed: () {
-                    print('I got pressed');
                     showAlertDialog(context);
                   },
                   tooltip: 'Change note color',

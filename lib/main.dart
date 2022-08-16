@@ -5,6 +5,7 @@ import 'package:notetaking_crud_app/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 
 import 'modules/add_note/provider/add_note_provider.dart';
+import 'modules/add_note/provider/change_postion.dart';
 import 'modules/home/home.dart';
 import 'modules/home/providers/note_provider.dart';
 
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<AddNoteProvider>(
           create: (_) => AddNoteProvider(),
+        ),
+        ChangeNotifierProvider<ChangePosition>(
+          create: (_) => ChangePosition(),
         ),
       ],
       child: Consumer<NoteTheme>(

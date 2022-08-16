@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../locator.dart';
 import '../../shared/create_note_appBar.dart';
 import '../home/providers/note_provider.dart';
+import 'widgets/bottom_button_slide.dart';
 
 AddNoteProvider addNoteProvider = getIt<AddNoteProvider>();
 
@@ -69,7 +70,6 @@ class _AddNoteState extends State<AddNote> {
         },
         onPop: () {
           anp.changeNoteColor(Theme.of(context).cardColor);
-
           Navigator.pop(context);
           anp.onPopAction();
         },
@@ -169,6 +169,7 @@ class _AddNoteState extends State<AddNote> {
               const SizedBox(
                 height: 10,
               ),
+              BottomButtonSlide(color: widget.color),
             ],
           ),
         ),
