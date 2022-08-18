@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:notetaking_crud_app/core/utils/theme.dart';
-import 'package:provider/provider.dart';
 
 import 'widgets/appbar_card_wih_icon.dart';
 
 PreferredSizeWidget createAppBar(
-  String title,
-  BuildContext context,
-) {
-  var notifier = Provider.of<NoteTheme>(context);
+  BuildContext context, {
+  required VoidCallback onMenuPreesed,
+}) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(kToolbarHeight),
     child: SafeArea(
@@ -25,12 +22,11 @@ PreferredSizeWidget createAppBar(
                     size: 20,
                     color: Theme.of(context).iconTheme.color,
                   ),
-                  onPressed: () {},
+                  onPressed: onMenuPreesed,
                   tooltip: "Pop out sidebar",
                 ),
               ),
               const SizedBox(width: 8),
-              Text(title, style: Theme.of(context).textTheme.headline3!),
               const Spacer(),
               AppBarCardwithIcon(
                 iconButton: IconButton(
@@ -43,19 +39,19 @@ PreferredSizeWidget createAppBar(
                 ),
               ),
               const SizedBox(width: 8),
-              AppBarCardwithIcon(
-                iconButton: IconButton(
-                  icon: notifier.isDarkTheme
-                      ? const Icon(
-                          Icons.wb_sunny,
-                        )
-                      : const Icon(
-                          Icons.nightlight,
-                        ),
-                  onPressed: () => notifier.toggleTheme(),
-                  tooltip: "Toggle brightness",
-                ),
-              ),
+              // AppBarCardwithIcon(
+              //   iconButton: IconButton(
+              //     icon: notifier.isDarkTheme
+              //         ? const Icon(
+              //             Icons.wb_sunny,
+              //           )
+              //         : const Icon(
+              //             Icons.nightlight,
+              //           ),
+              //     onPressed: () => notifier.toggleTheme(),
+              //     tooltip: "Toggle brightness",
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -203,7 +203,7 @@ class NoteTheme with ChangeNotifier {
           fontFamily: 'Poppins',
         ),
         headline2: TextStyle(
-          fontSize: 36.0,
+          fontSize: 34.0,
           color: Color(0xFFE2E6ED),
           fontWeight: FontWeight.normal,
           fontFamily: 'Poppins',
