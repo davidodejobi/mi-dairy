@@ -3,55 +3,37 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/note_colors.dart';
 import '../../../core/models/note.dart';
 
 final random = Random();
 
 class NoteProvider with ChangeNotifier {
-  Color? color = Colors.primaries[random.nextInt(Colors.primaries.length)]
-      [random.nextInt(2) * 2];
-
   final _notes = [
     Note(
-      color: Colors.primaries[random.nextInt(Colors.primaries.length)]
-          [random.nextInt(9) * 100],
+      color: colors[random.nextInt(colors.length + 1)],
       id: '1',
-      title: 'Fusce vulputate eleifend',
+      title: 'The cat ate my source code',
       content:
-          '''Quisque ut nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vitae orci sed dolor rutrum auctor..
-
-Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Nunc nulla.
-
-In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
+          "Rule 2: Try as much as possible to share snippet of some problem (especially the ones you find challenging while working on the project) with the community: After the cat ate my source code, I lost every single thing I wrote for the project I was working on for like 2+ weeks and the deadline was fast approaching (which even worsen the case). Here's what helped me, I had some of my main and useful snippet stored, so when this happened, I was able to retrieve some of those snippet and use them as a guide to get back on route. The other way I am just planning to adopt which is more efficiemt is by sharing solutions to blocker you had when you are working on a project. That way, you stored the snippet online and you also get feedback from other on better ways you could solve the problem.",
       createDateTime: DateTime.now(),
       isEditted: false,
     ),
     Note(
-      color: Colors.primaries[random.nextInt(Colors.primaries.length)]
-          [random.nextInt(9) * 100],
+      color: colors[random.nextInt(colors.length + 1)],
       id: '2',
-      title:
-          'Donec posuere vulputate arcu. Donec posuere vulputate arcu. Donec posuere vulputate arcu.',
+      title: 'back it up with a reasonable planning to work on',
       content:
-          '''Quisque ut nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vitae orci sed dolor rutrum auctor..
-
-Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Nunc nulla.
-
-In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
+          r"back it up with a reasonable solution you are working on/planning to work on. In my case, I had break the new to my team mate and tell them what I've done so far and how I plan to rewite the code that was eaten by the cat after retrieving my laptop from the engineer.",
       createDateTime: DateTime.now(),
       isEditted: false,
     ),
     Note(
-      color: Colors.primaries[random.nextInt(Colors.primaries.length)]
-          [random.nextInt(9) * 100],
+      color: colors[random.nextInt(colors.length + 1)],
       id: '3',
       title: 'Book Review : The Design of Everyday Things by Don Norman',
       content:
-          '''Quisque ut nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vitae orci sed dolor rutrum auctor..
-
-Quisque ut nisi. Vivamus elementum semper nisi. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Nunc nulla.
-
-In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Nunc interdum lacus sit amet orci. Fusce vel dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.''',
+          "Rule 3: Be reliable : One thing I've learned so far when joining a new team (be it an hackathon or a new workpalce), is to make the other member view me as a relaible team member. This doesn't neccessaryly means you don't have any bugs in your code or you always clear your Jira tickets because you could do those, and not still be reliable. It simple means people can trust you and know that when you say something (maybe to fix a bug, or not getting a task done cause of a major blocker) you will follow your words with actions, that's what being reliable means.",
       createDateTime: DateTime.now(),
       isEditted: false,
     ),
