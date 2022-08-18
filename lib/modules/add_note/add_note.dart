@@ -3,7 +3,7 @@ import 'package:notetaking_crud_app/modules/add_note/provider/add_note_provider.
 import 'package:provider/provider.dart';
 
 import '../../locator.dart';
-import '../../shared/create_note_appBar.dart';
+import '../../shared/app_appbars/create_note_appBar.dart';
 import '../home/providers/note_provider.dart';
 import 'widgets/bottom_button_slide.dart';
 

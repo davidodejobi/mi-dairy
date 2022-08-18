@@ -67,6 +67,7 @@ class NoteTheme with ChangeNotifier {
       ),
       iconTheme: const IconThemeData(
         color: Color(0xFF242A36),
+        size: 20,
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: Colors.blue.shade200,
@@ -179,6 +180,7 @@ class NoteTheme with ChangeNotifier {
       ),
       iconTheme: const IconThemeData(
         color: Color(0xFFE2E6ED),
+        size: 20,
       ),
       inputDecorationTheme: InputDecorationTheme(
         border: InputBorder.none,

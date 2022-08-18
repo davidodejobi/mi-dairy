@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:notetaking_crud_app/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 
-PreferredSizeWidget createAppBar(String title, BuildContext context) {
+import 'widgets/appbar_card_wih_icon.dart';
+
+PreferredSizeWidget createAppBar(
+  String title,
+  BuildContext context,
+) {
   var notifier = Provider.of<NoteTheme>(context);
   return PreferredSize(
     preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -13,36 +18,36 @@ PreferredSizeWidget createAppBar(String title, BuildContext context) {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: [
+              AppBarCardwithIcon(
+                iconButton: IconButton(
+                  icon: Icon(
+                    Icons.menu,
+                    size: 20,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  onPressed: () {},
+                  tooltip: "Pop out sidebar",
+                ),
+              ),
+              const SizedBox(width: 8),
               Text(title, style: Theme.of(context).textTheme.headline3!),
               const Spacer(),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).cardColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: IconButton(
+              AppBarCardwithIcon(
+                iconButton: IconButton(
                   icon: Icon(
                     Icons.search,
                     color: Theme.of(context).iconTheme.color,
                   ),
                   onPressed: () {},
+                  tooltip: "Search",
                 ),
               ),
               const SizedBox(width: 8),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).cardColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: IconButton(
+              AppBarCardwithIcon(
+                iconButton: IconButton(
                   icon: notifier.isDarkTheme
                       ? const Icon(
                           Icons.wb_sunny,
-                          color: Colors.white,
                         )
                       : const Icon(
                           Icons.nightlight,

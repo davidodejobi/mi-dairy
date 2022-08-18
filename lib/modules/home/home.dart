@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notetaking_crud_app/shared/note_appbar.dart';
+import 'package:notetaking_crud_app/shared/app_appbars/note_appbar.dart';
 
 import 'package:provider/provider.dart';
 
