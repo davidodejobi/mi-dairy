@@ -9,9 +9,17 @@ import '../../../core/models/note.dart';
 final random = Random();
 
 class NoteProvider with ChangeNotifier {
+  final _favorited = [];
+
+  List<Note> get favorited => [..._favorited];
+
+  addNoteToFavorite(Note note) {
+    _favorited.add(note);
+  }
+
   final _notes = [
     Note(
-      color: colors[random.nextInt(colors.length + 1)],
+      color: colors[random.nextInt(colors.length)],
       id: '1',
       title: 'The cat ate my source code',
       content:
@@ -20,7 +28,7 @@ class NoteProvider with ChangeNotifier {
       isEditted: false,
     ),
     Note(
-      color: colors[random.nextInt(colors.length + 1)],
+      color: colors[random.nextInt(colors.length)],
       id: '2',
       title: 'back it up with a reasonable planning to work on',
       content:
@@ -29,7 +37,7 @@ class NoteProvider with ChangeNotifier {
       isEditted: false,
     ),
     Note(
-      color: colors[random.nextInt(colors.length + 1)],
+      color: colors[random.nextInt(colors.length)],
       id: '3',
       title: 'Book Review : The Design of Everyday Things by Don Norman',
       content:

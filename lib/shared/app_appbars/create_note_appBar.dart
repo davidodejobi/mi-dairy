@@ -27,7 +27,7 @@ PreferredSizeWidget createNoteAppBar(
               AppBarCardwithIcon(
                 iconButton: IconButton(
                   icon: Icon(
-                    Icons.arrow_back_ios_new_rounded,
+                    Icons.check,
                     color: Theme.of(context).iconTheme.color,
                   ),
                   onPressed: onPop,
@@ -58,7 +58,7 @@ PreferredSizeWidget createNoteAppBar(
               AppBarCardwithIcon(
                 iconButton: IconButton(
                   icon: const Icon(
-                    Icons.save,
+                    Icons.filter_list,
                   ),
                   onPressed: onPressed,
                   tooltip: "Save",

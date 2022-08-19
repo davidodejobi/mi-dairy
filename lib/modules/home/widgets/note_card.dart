@@ -16,6 +16,9 @@ class NoteCard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  String convertDate(DateTime date) =>
+      "${date.year}-${date.month}-${date.day} time: ${date.hour}:${date.minute}";
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,8 +56,8 @@ class NoteCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             isEditted == true
-                ? "last editted on ${createDateTime.toString()}"
-                : "created on  ${createDateTime.toString()}",
+                ? "last editted on: ${convertDate(createDateTime!)}"
+                : "created on: ${convertDate(createDateTime!)}",
             style: Theme.of(context).textTheme.caption,
           ),
         ],

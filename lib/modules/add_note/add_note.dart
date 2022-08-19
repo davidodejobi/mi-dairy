@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import '../../locator.dart';
 import '../../shared/app_appbars/create_note_appBar.dart';
 import '../home/providers/note_provider.dart';
-import 'widgets/bottom_button_slide.dart';
 
 AddNoteProvider addNoteProvider = getIt<AddNoteProvider>();
 
@@ -42,6 +41,9 @@ class _AddNoteState extends State<AddNote> {
     });
     super.initState();
   }
+
+  String convertDate(DateTime date) =>
+      "${date.year}-${date.month}-${date.day} time: ${date.hour}:${date.minute}";
 
   FocusNode postNode = FocusNode();
   @override
@@ -85,7 +87,10 @@ class _AddNoteState extends State<AddNote> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "last edited : ${widget.date?.toString() ?? "now"}",
+                widget.date != null
+                    ? "last edited : ${convertDate(widget.date!)}"
+                    : "now",
+                // "last edited : ${widget.date?.toString() ?? "now"}",
                 style: Theme.of(context).textTheme.headline5,
               ),
               TextField(
@@ -166,10 +171,10 @@ class _AddNoteState extends State<AddNote> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              BottomButtonSlide(color: widget.color),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // BottomButtonSlide(color: widget.color),
             ],
           ),
         ),

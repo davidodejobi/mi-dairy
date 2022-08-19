@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:notetaking_crud_app/locator.dart';
 import 'package:notetaking_crud_app/core/utils/theme.dart';
+import 'package:notetaking_crud_app/modules/home/providers/note_appbar_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'modules/add_note/provider/add_note_provider.dart';
@@ -10,7 +10,6 @@ import 'modules/home/home.dart';
 import 'modules/home/providers/note_provider.dart';
 
 void main() {
-  timeDilation = 1.0;
   setup();
   runApp(const MyApp());
 }
@@ -38,6 +37,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<ChangePosition>(
           create: (_) => ChangePosition(),
+        ),
+        ChangeNotifierProvider<NoteAppbarProvider>(
+          create: (_) => NoteAppbarProvider(),
         ),
       ],
       child: Consumer<NoteTheme>(

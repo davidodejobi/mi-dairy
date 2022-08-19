@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notetaking_crud_app/shared/app_appbars/note_appbar.dart';
+import 'package:notetaking_crud_app/modules/home/widgets/home_appbar.dart';
 
 import 'package:provider/provider.dart';
 
@@ -22,12 +22,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: createAppBar(
+      appBar: createHomeAppBar(
         context,
         onMenuPreesed: () => _scaffoldKey.currentState!.openDrawer(),
       ),
       drawer: const AppDrawer(),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.small(
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
